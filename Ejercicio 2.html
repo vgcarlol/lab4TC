@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ejercicio No. 2: Lema de Bombeo</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css">
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+  <style>
+    body {
+      font-family: 'Arial', sans-serif;
+      line-height: 1.6;
+      padding: 20px;
+      background-color: #f9f9f9;
+    }
+    h1, h2, h3 {
+      color: #333;
+    }
+    h1 {
+      border-bottom: 2px solid #333;
+      padding-bottom: 10px;
+    }
+    h2 {
+      margin-top: 40px;
+    }
+    h3 {
+      margin-top: 20px;
+    }
+    ul, ol {
+      margin-left: 20px;
+    }
+    p, li {
+      margin-bottom: 10px;
+    }
+    img {
+      max-width: 100%;
+      height: auto;
+      display: block;
+      margin: 20px auto;
+    }
+    .equation {
+      background: #fff;
+      padding: 10px;
+      border: 1px solid #ddd;
+      margin: 10px 0;
+      border-radius: 4px;
+    }
+    .container {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 20px;
+      background: #fff;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Ejercicio No. 2: Utilización del Lema de Bombeo para Demostrar que el Lenguaje no es Regular</h1>
+
+    <h2>Procedimiento</h2>
+
+    <h3>Paso 1: Elección de la cadena</h3>
+    <p>Elegimos la cadena \( s = 0^P 1 0^P 1 \), donde \( P \) es el <em>pumping length</em> proporcionado por el Lema de Bombeo.</p>
+
+    <h3>Paso 2: División de la cadena</h3>
+    <p>Asumimos que el lenguaje \( A \) es regular. Según el Lema de Bombeo, podemos dividir la cadena \( s \) en tres partes \( s = xyz \) de manera que:</p>
+    <ul>
+      <li>\( |xy| \leq P \)</li>
+      <li>\( |y| \geq 1 \)</li>
+      <li>\( xy^iz \in A \) para todo \( i \geq 0 \)</li>
+    </ul>
+
+    <h3>Paso 3: Bombeo de la cadena</h3>
+    <p>Tomamos \( i = 2 \), es decir, repetimos \( y \) una vez más. La cadena resultante será:</p>
+    <div class="equation">
+      \( xy^2z = 0^{P+k} 1 0^P 1 \)
+    </div>
+    <p>donde \( k \geq 1 \) es la longitud de \( y \).</p>
+
+    <h3>Paso 4: Comprobación de la pertenencia al lenguaje</h3>
+    <p>Verificamos si la cadena resultante \( xy^2z \) pertenece al lenguaje \( A \). Comparamos las dos partes de la cadena:</p>
+    <ul>
+      <li>Primera parte: \( 0^{P+k} 1 \)</li>
+      <li>Segunda parte: \( 0^P 1 \)</li>
+    </ul>
+    <p>Estas dos partes no son iguales, por lo tanto, \( xy^2z \notin A \).</p>
+
+    <h3>Paso 5: Conclusión</h3>
+    <p>La cadena \( xy^2z \) no pertenece al lenguaje \( A \), lo que contradice el Lema de Bombeo. Por lo tanto, hemos demostrado que el lenguaje \( A = \{yy \mid y \in \{0,1\}^*\} \) no es regular.</p>
+  </div>
+</body>
+</html>
